@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button clear (click)="dismissModal()"> Fermer</button>
+    </ion-buttons>
+    <ion-title>ID : {{employes.Identifiant}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header> Nom: {{employes.Nom}}</ion-card-header>
+    <ion-card-content>
+
+      <p> Prenom: {{employes.Prenom}} </p>
+      <p> Age: {{employes.Age}} </p>
+      <p> Departement: {{employes.Departement}} </p>
+      <p> Fonction: {{employes.Fonction}} </p>
+      <p> Telephone: {{employes.Telephone}} </p>
+      <p> Email: {{employes.Email}} </p>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="secondary"
+        (click) = "onDeleteEmployes()">
+          sauver</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full color="primary"
+        (clik) = "onModifyEmployes">
+          Annuler</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

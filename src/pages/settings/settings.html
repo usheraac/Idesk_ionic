@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      page d'accueil
-    </ion-title>
+    <ion-title> Fonctions</ion-title>
     <ion-buttons start>
       <button ion-button icon-only (click) = "onToggleMenu()">
         <ion-icon name="menu"></ion-icon>
@@ -12,7 +10,8 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button [navPush]="incidentspage" > Incidents</button>
-  <button ion-button [navPush]="employesPage" > Employes</button>
+ <button ion-button icon-start (click)="onToggleEmployes()">
+   <ion-icon name="Delete"></ion-icon>
+   Enlever l'employe
+ </button>
 </ion-content>
-
