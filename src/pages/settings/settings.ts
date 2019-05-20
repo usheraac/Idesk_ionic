@@ -32,6 +32,16 @@ export class SettingsPage {
   alert.present();
   }
 
+  onCreateEmploye(){
+
+  }
+
+  onCreateIncident(){
+
+  }
+
+
+
   onToggleMenu() {
 
     this.menuCtrl.open();

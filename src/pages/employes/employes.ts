@@ -46,6 +46,10 @@ export class EmployesPage {
 
   }
 
+  onCreateEmploye(){
+
+  }
+
   onToggleMenu() {
 
     this.menuCtrl.open();

@@ -3,7 +3,9 @@ import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {TabsPage} from "../pages/tabs/tabs";
-import {OptionsPage} from "../pages/options/options";
+import {IncidentsPage} from "../pages/incidents/incidents";
+import {EmployesPage} from "../pages/employes/employes";
+import {SettingsPage} from "../pages/settings/settings";
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +15,10 @@ export class MyApp {
 
   @ViewChild('content') content: NavController;
   tabsPage: any = TabsPage;
-  optionsPage:any = OptionsPage;
+  incidentsPage: any = IncidentsPage;
+  employesPage: any = EmployesPage;
+  settingsPage: any = SettingsPage;
+
 
 
 

@@ -5,16 +5,26 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-list>
-      <button ion-button icon-start (click)="onNavigate(tabsPage)">
-        <ion-icon name="power"></ion-icon>
-        Appareils
+    <ion-grid>
+      <ion-row>
+      <button ion-button icon-start (click)="onNavigate(employesPage)">
+        <ion-icon name="man"></ion-icon>
+        Employes
       </button>
-      <button ion-button icon-start (click)="onNavigate(optionsPage)">
-        <ion-icon name="options"></ion-icon>
-        Options
+      </ion-row>
+      <ion-row>
+      <button ion-button icon-start (click)="onNavigate(incidentsPage)">
+        <ion-icon name="bulb"></ion-icon>
+        Incidents
       </button>
-    </ion-list>
+      </ion-row>
+      <ion-row>
+      <button ion-button icon-start (click)="onNavigate(settingsPage)">
+        <ion-icon name="settings"></ion-icon>
+        Fonctions
+      </button>
+      </ion-row>
+    </ion-grid>
   </ion-content>
 </ion-menu>
 <ion-nav [root]="tabsPage" #content></ion-nav>

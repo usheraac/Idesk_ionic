@@ -10,6 +10,10 @@ export class  IncidentsPage{
 
   constructor(private menuCtrl : MenuController ) {}
 
+  onCreateIncident(){
+
+  }
+
   onToggleMenu() {
 
     this.menuCtrl.open();

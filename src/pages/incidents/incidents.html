@@ -1,16 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title> Incidents</ion-title>
-    <ion-buttons start>
-      <button ion-button icon-only (click) = "onToggleMenu()">
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-buttons start>
+            <button ion-button icon-only (click) = "onToggleMenu()">
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-title> Gestion Des Incidents</ion-title>
+        </ion-col>
+        <ion-col>
+          <button  ion-button icon-only (click) = "onCreateIncident()">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <P> Gestion des incidents</P>
 
 </ion-content>
 

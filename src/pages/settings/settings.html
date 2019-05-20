@@ -1,17 +1,42 @@
 <ion-header>
   <ion-navbar>
-    <ion-title> Fonctions</ion-title>
-    <ion-buttons start>
-      <button ion-button icon-only (click) = "onToggleMenu()">
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-buttons start>
+            <button ion-button icon-only (click) = "onToggleMenu()">
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-title>Gestion Des Fonctions</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
+  <ion-grid>
+    <ion-row>
  <button ion-button icon-start (click)="onToggleEmployes()">
    <ion-icon name="Delete"></ion-icon>
    Enlever l'employe
  </button>
+    </ion-row>
+    <ion-row>
+  <button ion-button icon-start (click) = "onCreateIncident()">
+    <ion-icon name="man"></ion-icon>
+    Ajouter un employé
+  </button>
+    </ion-row>
+    <ion-row>
+  <button  ion-button icon-start (click) = "onCreateEmploye()">
+    <ion-icon name="settings"></ion-icon>
+    Ajouter un incident
+  </button>
+    </ion-row>
+  </ion-grid>
 </ion-content>

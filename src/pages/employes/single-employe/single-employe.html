@@ -9,6 +9,14 @@
 
 <ion-content padding>
   <ion-card>
+    <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+      <ion-list>
+        <ion-item>
+          <ion-label></ion-label>
+        </ion-item>
+      </ion-list>
+    </form>
+
     <ion-card-header> Nom: {{employes.Nom}}</ion-card-header>
     <ion-card-content>
 
