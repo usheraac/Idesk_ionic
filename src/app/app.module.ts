@@ -13,6 +13,7 @@ import {SettingsPage} from "../pages/settings/settings";
 import {TabsPage} from "../pages/tabs/tabs";
 import {EmployesService} from "../services/employes.service";
 import {OptionsPage} from "../pages/options/options";
+import {EmployeFormPage} from "../pages/employe-form/employe-form";
 
 @NgModule({
 
@@ -24,7 +25,8 @@ import {OptionsPage} from "../pages/options/options";
     SingleEmployePage,
     SettingsPage,
     TabsPage,
-    OptionsPage
+    OptionsPage,
+    EmployeFormPage
 
   ],
   imports: [
@@ -40,7 +42,8 @@ import {OptionsPage} from "../pages/options/options";
     SingleEmployePage,
     SettingsPage,
     TabsPage,
-    OptionsPage
+    OptionsPage,
+    EmployeFormPage
 
   ],
   providers: [

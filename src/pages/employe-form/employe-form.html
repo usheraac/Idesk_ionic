@@ -1,0 +1,72 @@
+p<ion-header>
+  <ion-navbar>
+    <ion-title>Nouvel employe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup] ='employeForm'>
+    <ion-list>
+      <ion-item-divider>Données du nouvel employe</ion-item-divider>
+
+      <ion-item>
+        <ion-label>
+          ID
+        </ion-label>
+        <ion-input placeholder="saisir son id" formControlName ="ID"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Nom
+        </ion-label>
+        <ion-input placeholder="saisir son nom" formControlName="Nom"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Prenom
+        </ion-label>
+        <ion-input placeholder="saisir son prénom" formControlName="Prenom"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Age
+        </ion-label>
+        <ion-input placeholder="saisir son âge" formControlName="Age"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Departement
+        </ion-label>
+        <ion-input placeholder="saisir son departement" formControlName="Departement"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Fonction
+        </ion-label>
+        <ion-input placeholder="saisir sa fonction" formControlName="Fonction"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Telephone
+        </ion-label>
+        <ion-input placeholder="saisir son telephone" formControlName="Telephone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input placeholder="saisir son email" formControlName="Email"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button full color="'secondary" (click)="onSubmitForm()"> Enregistrer</button>
+  </form>
+</ion-content>

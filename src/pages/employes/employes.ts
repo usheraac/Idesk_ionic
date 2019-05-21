@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ModalController, MenuController } from 'ionic-angular';
+import { ModalController, MenuController, NavController} from 'ionic-angular';
 import {SingleEmployePage} from "./single-employe/single-employe";
 import {EmployesService} from "../../services/employes.service";
 import {Employes} from "../../models/Employes";
+import {EmployeFormPage} from "../employe-form/employe-form";
 
 /**
  * Generated class for the EmployesPage page.
@@ -22,7 +23,8 @@ export class EmployesPage {
 
   constructor(private modalCtrl : ModalController,
               private employesService: EmployesService,
-              private menuCtrl: MenuController) {
+              private menuCtrl: MenuController,
+              private navCtrl:NavController) {
   }
 
   ionViewWillEnter(){
@@ -47,6 +49,7 @@ export class EmployesPage {
   }
 
   onCreateEmploye(){
+    this.navCtrl.push(EmployeFormPage);
 
   }
 

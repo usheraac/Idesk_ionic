@@ -29,4 +29,8 @@ export class EmployesService {
     }
   ];
 
+  addEmploye(employe:Employes) {
+    this.employesList.push(employe);
+  }
+
 }
