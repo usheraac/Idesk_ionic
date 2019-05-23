@@ -19,7 +19,7 @@ import {EmployeFormPage} from "../employe-form/employe-form";
 })
 export class EmployesPage {
 
-  employesList : Employes[];
+  employesList : Employes[];  // creation  d'une lise d'employe
 
   constructor(private modalCtrl : ModalController,
               private employesService: EmployesService,
@@ -27,27 +27,30 @@ export class EmployesPage {
               private navCtrl:NavController) {
   }
 
+
+  // récuperation de la liste des employés dans le service quand la page employé devient active
   ionViewWillEnter(){
     this.employesList = this.employesService.employesList.slice();
   }
 
-  // onLoadSingleEmploye (name: string){
-  //   this.navCtrl.push(SingleEmployePage,{singleEmployeName: name});
-  // }
 
+  //afficher un employe sous forme de modal
   onLoadEmployes(index: number) {
     let modal = this.modalCtrl.create(SingleEmployePage, {index : index});
     modal.present();
   }
 
+  //modifier l'état un employe
   onModifyEmployes() {
 
   }
 
+  //supprimer un employe
   onDeleteEmployes() {
 
   }
 
+  //creer un nouvel Employe
   onCreateEmploye(){
     this.navCtrl.push(EmployeFormPage);
 

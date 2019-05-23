@@ -12,6 +12,7 @@ export class SettingsPage {
                private menuCtrl: MenuController ) {
 
   }
+/*
 
   onToggleEmployes(){
   let alert = this.alertCtrl.create({
@@ -28,6 +29,7 @@ export class SettingsPage {
       }
     ]
   });
+*/
 
   alert.present();
   }

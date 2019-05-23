@@ -13,9 +13,11 @@
           <ion-title> Gestion Des Incidents</ion-title>
         </ion-col>
         <ion-col>
+          <ion-buttons end>
           <button  ion-button icon-only (click) = "onCreateIncident()">
             <ion-icon name="create"></ion-icon>
           </button>
+          </ion-buttons>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -23,6 +25,33 @@
 </ion-header>
 
 <ion-content padding>
+
+  <ion-card *ngFor="let incident of incidentList; let  i = index " (click) = "onLoadIncidents(i)"  >
+    <ion-card-header> ID :{{incident.Identifiant}}  </ion-card-header>
+    <ion-card-content>
+      <p> Objet: {{incident.Objet}} </p>
+      <p> Description: {{incident.Description}} </p>
+      <p> Service: {{incident.Service}} </p>
+      <p> Date: {{incident.Date}} </p>
+      <p> Date_target: {{incident.Date_target}} </p>
+      <p> Discussion: {{incident.Discussion}} </p>
+      <p> Employe: {{incident.Employe}} </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button full color="secondary"
+                    (clik) = "onModifyIncidents()">
+              Modifier</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button full color="danger"
+                    (click) = "onDeleteIncidents()">
+              Supprimer</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 

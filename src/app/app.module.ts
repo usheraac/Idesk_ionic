@@ -14,6 +14,9 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {EmployesService} from "../services/employes.service";
 import {OptionsPage} from "../pages/options/options";
 import {EmployeFormPage} from "../pages/employe-form/employe-form";
+import {IncidentFormPage} from "../pages/incident-form/incident-form";
+import {SingleIncidentPage} from "../pages/incidents/single-incident/single-incident";
+import {IncidentsService} from "../services/incidents.service";
 
 @NgModule({
 
@@ -26,7 +29,9 @@ import {EmployeFormPage} from "../pages/employe-form/employe-form";
     SettingsPage,
     TabsPage,
     OptionsPage,
-    EmployeFormPage
+    EmployeFormPage,
+    SingleIncidentPage,
+    IncidentFormPage
 
   ],
   imports: [
@@ -43,10 +48,13 @@ import {EmployeFormPage} from "../pages/employe-form/employe-form";
     SettingsPage,
     TabsPage,
     OptionsPage,
-    EmployeFormPage
+    EmployeFormPage,
+    SingleIncidentPage,
+    IncidentFormPage
 
   ],
   providers: [
+    IncidentsService,
     EmployesService,
     StatusBar,
     SplashScreen,

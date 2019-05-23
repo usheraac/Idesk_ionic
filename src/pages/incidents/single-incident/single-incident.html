@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button clear (click)="dismissModal()"> Fermer</button>
+    </ion-buttons>
+    <ion-title>ID : {{incidents.Identifiant}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+      <ion-list>
+        <ion-item>
+          <ion-label></ion-label>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-card-header> Objet: {{incidents.Objet}}</ion-card-header>
+    <ion-card-content>
+
+      <p> Description: {{incidents.Description}} </p>
+      <p> Service: {{incidents.Service}} </p>
+      <p> Date: {{incidents.Date}} </p>
+      <p> Date_target: {{incidents.Date_target}} </p>
+      <p> Discussion: {{incidents.Discussion}} </p>
+      <p> Employe: {{incidents.Employe}} </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="secondary"
+                (click) = "onDeleteIncidents()">
+          sauver</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full color="primary"
+                (clik) = "onModifyIncidents">
+          Annuler</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

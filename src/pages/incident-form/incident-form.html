@@ -1,0 +1,81 @@
+p<ion-header>
+  <ion-navbar>
+    <ion-title>Nouvel Incident</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup] ='incidentForm'>
+    <ion-list>
+      <ion-item-divider>Données du nouvel incident</ion-item-divider>
+
+      <ion-item>
+        <ion-label>
+          ID
+        </ion-label>
+        <ion-input placeholder="saisir son id" formControlName ="ID"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Objet
+        </ion-label>
+        <ion-input placeholder="saisir l'objet de l'incident" formControlName="Objet"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Description
+        </ion-label>
+        <ion-input placeholder="saisir une description" formControlName="Description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Service
+        </ion-label>
+        <ion-input placeholder="entrer votre departement" formControlName="Service"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Date
+        </ion-label>
+        <ion-input placeholder="date de creation de l'incident" formControlName="Date"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Date_target
+        </ion-label>
+        <ion-input placeholder="date espérée d'une resolution" formControlName="Date_target"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Status
+        </ion-label>
+        <ion-input placeholder="Status en cours de l'incident" formControlName="Status"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Employe
+        </ion-label>
+        <ion-input placeholder="spécialiste en charge" formControlName="Employe"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>
+          Discussion
+        </ion-label>
+        <ion-input placeholder="Commentaire du specialiste" formControlName="Discussion"></ion-input>
+      </ion-item>
+
+
+    </ion-list>
+    <button ion-button full color="'secondary" (click)="onSubmitForm()"> Enregistrer</button>
+  </form>
+</ion-content>
