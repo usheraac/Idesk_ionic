@@ -17,6 +17,7 @@ import {EmployeFormPage} from "../pages/employe-form/employe-form";
 import {IncidentFormPage} from "../pages/incident-form/incident-form";
 import {SingleIncidentPage} from "../pages/incidents/single-incident/single-incident";
 import {IncidentsService} from "../services/incidents.service";
+import AuthSettings = firebase.auth.AuthSettings;
 
 @NgModule({
 
@@ -54,6 +55,7 @@ import {IncidentsService} from "../services/incidents.service";
 
   ],
   providers: [
+    AuthSettings,
     IncidentsService,
     EmployesService,
     StatusBar,
