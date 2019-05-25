@@ -1,7 +1,13 @@
 import { Employes} from "../models/Employes";
-
+import {Subject} from "rxjs";
+import DataSnapshot = firebase.database.DataSnapshot;
+import * as firebase from 'firebase';
 
 export class EmployesService {
+
+  // creation du  Subject qui émettra la liste des employes
+  employes$ = new Subject <Employes[]>();
+
   employesList : Employes[] = [
     {
       Identifiant: 14299,
@@ -29,8 +35,43 @@ export class EmployesService {
     }
   ];
 
+  //ajouter un employe à la liste
   addEmploye(employe:Employes) {
     this.employesList.push(employe);
+    this.emitEmployes();
+  }
+
+  //Emettre le subject
+  emitEmployes(){
+    this.employes$.next(this.employesList.slice());
+  }
+
+  saveData(){
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('employes').set(this.employesList).then(
+        (data:DataSnapshot) =>{
+          resolve(data);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  retrieveData(){
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('employes').once('value').then(
+        (data:DataSnapshot) =>{
+          this.employesList = data.val();
+          this.emitEmployes();
+          resolve('Données récupérées avec succès !');
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   }
 
 }

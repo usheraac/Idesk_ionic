@@ -7,22 +7,42 @@
   <ion-content>
     <ion-grid>
       <ion-row>
-      <button ion-button icon-start (click)="onNavigate(employesPage)">
+      <button ion-button icon-start (click)="onNavigate(employesPage)" *ngIf="isAuth">
         <ion-icon name="man"></ion-icon>
         Employes
       </button>
       </ion-row>
       <ion-row>
-      <button ion-button icon-start (click)="onNavigate(incidentsPage)">
+      <button ion-button icon-start (click)="onNavigate(incidentsPage)" *ngIf="isAuth">
         <ion-icon name="bulb"></ion-icon>
         Incidents
       </button>
       </ion-row>
       <ion-row>
-      <button ion-button icon-start (click)="onNavigate(settingsPage)">
+      <button ion-button icon-start (click)="onNavigate(settingsPage)" *ngIf="isAuth">
         <ion-icon name="settings"></ion-icon>
         Fonctions
       </button>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        <button ion-button icon-start (click)="onNavigate(authPage, {mode:'new'})" *ngIf="!isAuth">
+          <ion-icon name="person-add"></ion-icon>
+          nouvel utilisateur
+        </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start (click)="onNavigate(authPage,{mode:'connect'})" *ngIf="!isAuth">
+            <ion-icon name="person"></ion-icon>
+            connexion
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <button ion-button icon-start (click)="onDisconnect()" *ngIf="isAuth">
+          <ion-icon name="exit"></ion-icon>
+          Déconnexion
+        </button>
       </ion-row>
     </ion-grid>
   </ion-content>

@@ -6,6 +6,8 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {IncidentsPage} from "../pages/incidents/incidents";
 import {EmployesPage} from "../pages/employes/employes";
 import * as firebase from 'firebase';
+import {AuthPage} from "../pages/auth/auth";
+import {SettingsPage} from "../pages/settings/settings";
 
 
 @Component({
@@ -15,10 +17,13 @@ export class MyApp {
 
 
   @ViewChild('content') content: NavController;
+
+  isAuth: boolean;
   tabsPage: any = TabsPage;
   incidentsPage: any = IncidentsPage;
   employesPage: any = EmployesPage;
   settingsPage: any = SettingsPage;
+  authPage: any = AuthPage;
 
 
 
@@ -42,14 +47,32 @@ export class MyApp {
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+      firebase.auth().onAuthStateChanged(
+        (user)=>{
+          if(user){
+            this.isAuth = true;
+            this.content.setRoot(TabsPage);
+          } else {
+            this.isAuth = false;
+            this.content.setRoot(AuthPage,{mode:'connect'});
+          }
+
+        }
+      );
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
 
-  onNavigate(page: any){
-    this.content.setRoot(page);
+  onNavigate(page: any, data?:{}){
+    this.content.setRoot(page, data? data: null);
     this.menuCtrl.close();
   }
+
+  onDisconnect(){
+    firebase.auth().signOut();
+    this.menuCtrl.close();
+  }
+
 }
 

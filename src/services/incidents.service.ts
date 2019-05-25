@@ -1,7 +1,14 @@
 import {Incidents} from "../models/Incidents";
+import {Subject} from "rxjs";
+import DataSnapshot = firebase.database.DataSnapshot;
+import * as firebase from 'firebase';
 
 
 export class IncidentsService{
+
+  // creation du  Subject qui émettra la liste des  incidents
+  incidents$ = new Subject <Incidents[]>();
+
   incidentList: Incidents[] =[
     {
       Identifiant: 1,
@@ -30,5 +37,41 @@ export class IncidentsService{
 
   addIncident(incident:Incidents){
     this.incidentList.push(incident);
+    this.emitIncidents();
   }
+
+  //Emettre le subject
+  emitIncidents(){
+    this.incidents$.next(this.incidentList.slice());
+  }
+
+  saveData(){
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('incidents').set(this.incidentList).then(
+        (data:DataSnapshot) =>{
+          resolve(data);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  retrieveData(){
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('incidents').once('value').then(
+        (data:DataSnapshot) =>{
+          this.incidentList = data.val();
+          this.emitIncidents();
+          resolve('Données récupérées avec succès !');
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+
 }
