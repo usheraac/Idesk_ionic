@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
+import {NavController, NavParams, ViewController} from 'ionic-angular';
 import {Incidents} from "../../../models/Incidents";
 import {IncidentsService} from "../../../services/incidents.service";
 
@@ -14,12 +14,19 @@ export class SingleIncidentPage implements OnInit{
 
   constructor(public navParams: NavParams,
               public viewCtrl: ViewController,
-              public incidentsService: IncidentsService) {
+              public incidentsService: IncidentsService,
+              public navCtrl: NavController) {
   }
 
   ngOnInit() {
     this.index = this.navParams.get('index');
     this.incidents = this.incidentsService.incidentList[this.index];
+  }
+
+  onDeleteIncidents(){
+    // @ts-ignore
+    this.navCtrl.pop(SingleIncidentPage);
+
   }
 
   dismissModal(){
