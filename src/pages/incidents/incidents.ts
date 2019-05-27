@@ -1,5 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {LoadingController, MenuController, ModalController, NavController, ToastController} from "ionic-angular";
+import {
+  AlertController,
+  LoadingController,
+  MenuController,
+  ModalController,
+  NavController,
+  ToastController
+} from "ionic-angular";
 import {Incidents} from "../../models/Incidents";
 import {IncidentsService} from "../../services/incidents.service";
 import {IncidentFormPage} from "../incident-form/incident-form";
@@ -24,7 +31,8 @@ export class  IncidentsPage implements OnInit, OnDestroy{
               private menuCtrl: MenuController,
               private navCtrl: NavController,
               private toastCtrl: ToastController,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
 
   }
 
@@ -49,8 +57,32 @@ export class  IncidentsPage implements OnInit, OnDestroy{
 
   }
 
+
+
   //supprimer un incident
-  onDeleteIncidents() {
+
+  alertDeleteIncidents(index:number) {
+    let alert = this.alertCtrl.create({
+      title:'Ëtes-vous certain de vouloir continuer?',
+      subTitle:"Cette action supprimera l'incident",
+      buttons: [
+        {
+          text:'Annuler',
+          role:'Cancel'
+        },
+        {
+          text:'Confirmer',
+          handler: () => this.onDeleteIncidents(index)
+        }
+      ]
+    });
+    alert.present();
+
+  }
+
+  onDeleteIncidents(index:number) {
+    this.incidentsService.removeIncidents(index);
+    this.navCtrl.push(IncidentsPage);
 
   }
 

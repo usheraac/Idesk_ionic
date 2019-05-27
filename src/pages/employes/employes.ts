@@ -1,5 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ModalController, MenuController, NavController, LoadingController, ToastController} from 'ionic-angular';
+import {
+  ModalController,
+  MenuController,
+  NavController,
+  LoadingController,
+  ToastController,
+  AlertController
+} from 'ionic-angular';
 import {SingleEmployePage} from "./single-employe/single-employe";
 import {EmployesService} from "../../services/employes.service";
 import {Employes} from "../../models/Employes";
@@ -21,7 +28,8 @@ export class EmployesPage implements OnInit, OnDestroy {
               private menuCtrl: MenuController,
               private navCtrl:NavController,
               private toastCtrl: ToastController,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
   }
 
 
@@ -48,8 +56,30 @@ export class EmployesPage implements OnInit, OnDestroy {
   }
 
   //supprimer un employe
-  onDeleteEmployes() {
+  alertDeleteEmployes(index:number) {
+    let alert = this.alertCtrl.create({
+      title:'Ëtes-vous certain de vouloir continuer?',
+      subTitle:"Cette action supprimera l'employé !",
+      buttons: [
+        {
+          text:'Annuler',
+          role:'Cancel'
+        },
+        {
+          text:'Confirmer',
+          handler: () => this.onDeleteEmployes(index)
+        }
+      ]
+    });
+    alert.present();
 
+
+
+  }
+
+  onDeleteEmployes(index:number){
+    this.employesService.removeEmploye(index);
+    this.navCtrl.push(EmployesPage);
   }
 
   //creer un nouvel Employe

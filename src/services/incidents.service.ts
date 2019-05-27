@@ -40,6 +40,10 @@ export class IncidentsService{
     this.emitIncidents();
   }
 
+  removeIncidents(index: number){
+    this.incidentList.splice(index,1)
+  }
+
   //Emettre le subject
   emitIncidents(){
     this.incidents$.next(this.incidentList.slice());

@@ -41,6 +41,10 @@ export class EmployesService {
     this.emitEmployes();
   }
 
+  removeEmploye(index: number){
+    this.employesList.splice(index, 1);
+  }
+
   //Emettre le subject
   emitEmployes(){
     this.employes$.next(this.employesList.slice());
