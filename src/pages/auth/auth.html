@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start>
-      <button ion-button icon-only (click)="onToggleMenu">
+      <button ion-button icon-only (click)="onToggleMenu()">
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
@@ -23,6 +23,6 @@
       </ion-item>
     </ion-list>
     <button ion-button full (click)="onSubmitForm()"> Soumettre</button>
-    <span ion-text color="'danger">{{errorMessage}}</span>
+    <span ion-text color="danger">{{errorMessage}}</span>
   </form>
 </ion-content>

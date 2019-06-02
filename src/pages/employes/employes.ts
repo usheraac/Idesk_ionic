@@ -11,7 +11,7 @@ import {SingleEmployePage} from "./single-employe/single-employe";
 import {EmployesService} from "../../services/employes.service";
 import {Employes} from "../../models/Employes";
 import {EmployeFormPage} from "../employe-form/employe-form";
-import {Subscription} from "rxjs";
+import {Subscription} from "rxjs/Subscription";
 
 
 @Component({
@@ -44,15 +44,10 @@ export class EmployesPage implements OnInit, OnDestroy {
   }
 
 
-  //afficher un employe sous forme de modal
-  onLoadEmployes(index: number) {
+  //afficher et  modifier un employé sous forme de modal
+  onModifyEmployes(index: number) {
     let modal = this.modalCtrl.create(SingleEmployePage, {index : index});
     modal.present();
-  }
-
-  //modifier l'état un employe
-  onModifyEmployes() {
-
   }
 
   //supprimer un employe
@@ -94,7 +89,9 @@ export class EmployesPage implements OnInit, OnDestroy {
 
   }
 
-  //sauvergade des données sur firebase
+
+
+  //sauvegarde des données sur firebase
   onSaveList(){
     let loader = this.loadingCtrl.create({
       content:'Sauvergade en cours'

@@ -46,16 +46,12 @@ export class  IncidentsPage implements OnInit, OnDestroy{
     this.incidentsService.emitIncidents();
   }
 
-  //afficher un incident sous forme de modal
-  onLoadIncidents(index: number) {
+  //afficher et  modifier un incident sous forme de modal
+  onModifyIncidents(index: number) {
     let modal = this.modalCtrl.create(SingleIncidentPage, {index : index});
     modal.present();
   }
 
-  //modifier l'état un incident
-  onModifyIncidents() {
-
-  }
 
 
 

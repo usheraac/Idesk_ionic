@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-card>
-    <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <form #f="ngForm" (ngSubmit)="onSubmitForm(f)" [formGroup] ="employeForm">
       <ion-list>
         <ion-item>
           <ion-label></ion-label>
@@ -19,6 +19,8 @@
 
     <ion-card-header> Nom: {{employes.Nom}}</ion-card-header>
     <ion-card-content>
+
+
 
       <p> Prenom: {{employes.Prenom}} </p>
       <p> Age: {{employes.Age}} </p>
@@ -39,7 +41,7 @@
       </ion-col>
       <ion-col>
         <button ion-button full color="primary"
-          (click) = "onDeleteEmployes()">
+          (click) = "onCancelEmployes()">
           Annuler</button>
       </ion-col>
     </ion-row>

@@ -47,9 +47,10 @@ export class EmployesService {
 
   //Emettre le subject
   emitEmployes(){
-    this.employes$.next(this.employesList.slice());
+    this.employes$.next(this.employesList.slice()); //la methode slice permet de passer une copie de employelist
   }
 
+  //sauverge de données employé dans le service
   saveData(){
     return new Promise((resolve, reject) => {
       firebase.database().ref('employes').set(this.employesList).then(
@@ -63,6 +64,7 @@ export class EmployesService {
     });
   }
 
+  //récuperation de la données employé dans le service
   retrieveData(){
     return new Promise((resolve, reject) => {
       firebase.database().ref('employes').once('value').then(

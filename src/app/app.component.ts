@@ -64,6 +64,7 @@ export class MyApp {
     });
   }
 
+  //Envois des données vers une page
   onNavigate(page: any, data?:{}){
     this.content.setRoot(page, data? data: null);
     this.menuCtrl.close();

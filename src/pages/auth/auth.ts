@@ -22,14 +22,12 @@ export class AuthPage implements OnInit{
               private navParams: NavParams,
               private menuCtrl: MenuController,
               private formBuilder: FormBuilder,
-              private navCtrl:NavController) {
+              private navCtrl: NavController) {}
 
-  }
-
-
+  // récuperation du mode dans le navParams : Soit le mode new ou connect
   ngOnInit(){
   this.mode = this.navParams.get('mode');
-  this.initForm
+  this.initForm();
   }
 
   onToggleMenu() {
@@ -65,7 +63,7 @@ export class AuthPage implements OnInit{
         }
       ).catch(
         (error)=>{
-          this.errorMessage = error
+          this.errorMessage = error;
         }
       );
     }

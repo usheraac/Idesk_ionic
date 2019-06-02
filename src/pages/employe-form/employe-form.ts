@@ -18,6 +18,7 @@ export class EmployeFormPage implements OnInit{
 
   ngOnInit(){
     this.initForm();
+
   }
 
   initForm(){

@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {AlertController, MenuController} from "ionic-angular";
+import {MenuController, NavController} from "ionic-angular";
+import {EmployeFormPage} from "../employe-form/employe-form";
+import {IncidentFormPage} from "../incident-form/incident-form";
 
 @Component({
   selector: 'page-settings',
@@ -8,40 +10,18 @@ import {AlertController, MenuController} from "ionic-angular";
 
 export class SettingsPage {
 
-  constructor (private alertCtrl: AlertController,
-               private menuCtrl: MenuController ) {
+  constructor (private menuCtrl: MenuController,
+               private navCtrl: NavController) {
 
   }
-/*
 
-  onToggleEmployes(){
-  let alert = this.alertCtrl.create({
-    title: 'Êtes-vous certain de vouloir continuer?',
-    subTitle: 'Cette action supprimera  cette employé!',
-    buttons: [
-      {
-      text:'Annuler',
-      role:'cancel'
-      },
-      {
-        text: 'Confimer',
-        handler: () => console.log('Confirmé!')
-      }
-    ]
-  });
-
-
-  alert.present();
-  }
-
- */
-
+  // placer la page EmployeFormPage dans le stack de page
   onCreateEmploye(){
-
+    this.navCtrl.push(EmployeFormPage);
   }
 
   onCreateIncident(){
-
+    this.navCtrl.push(IncidentFormPage);
   }
 
 

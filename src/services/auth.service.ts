@@ -2,6 +2,19 @@ import * as firebase from 'firebase';
 
 export class AuthService{
 
+
+  isAuth = false;  //boolean lié à l'état d'authentificatio retourné par Firebase
+
+  constructor(){
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isAuth = true;
+      } else{
+        this.isAuth = false;
+      }
+    });
+  }
+
   // methode pour la creation d'un nouvel User
   signUpUser(email: string, password: string) {
     //return une promise qui appel la methode auth et permet la creation d'un user et renvois le user si l'authentification se passe bien ou une erreur
